@@ -335,18 +335,6 @@ a:hover { color: var(--text-bright); }
 .medal-icon.excellence { background: rgba(167, 139, 250, 0.12); color: var(--accent-2); border: 1px solid rgba(167, 139, 250, 0.4); }
 .medal-card .mono-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); }
 
-/* ---------- Article cards (blog.html) ---------- */
-.article-card { display: flex; flex-direction: column; }
-.article-card h3 { font-size: 1.1rem; margin: 0.5rem 0 0.6rem; }
-.article-card p { font-size: 0.92rem; flex-grow: 1; }
-.coming-soon {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
 /* ---------- Contact cards (contact.html) ---------- */
 .contact-card {
   display: flex;

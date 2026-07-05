@@ -1,13 +1,13 @@
 # ssim-profile
 
-Stephen Sim's personal portfolio website — a static, six-page site covering his
+Stephen Sim's personal portfolio website — a static, five-page site covering his
 background as a backend engineer, his WorldSkills competition history, project
-deep dives, technical writing, and contact info.
+deep dives, and contact info.
 
 ## What this is
 
 A plain HTML/CSS/JS static site. No build step, no framework, no bundler, no
-package.json. Six pages share one design system (`css/style.css`) and one
+package.json. Five pages share one design system (`css/style.css`) and one
 small script file (`js/script.js`). Layout uses Bootstrap 5 (grid + navbar
 collapse only) loaded from a CDN; icons come from Font Awesome; scroll-reveal
 animation comes from AOS. All three are loaded via `<link>`/`<script>` tags
@@ -19,7 +19,6 @@ Pages:
 - `about.html` — story + Ant International experience case studies
 - `projects.html` — DirectPay and PRiM project deep dives
 - `worldskills.html` — WorldSkills Singapore/Abu Dhabi/Lyon journey
-- `blog.html` — planned technical articles (all marked "Coming soon")
 - `contact.html` — email, GitHub, LinkedIn, resume download
 
 ## Local preview
@@ -37,7 +36,7 @@ optional.)
 Every page repeats the same navbar and footer markup — **there is no shared
 include mechanism**, so any change to navigation (adding a page, renaming a
 link, changing the resume path, editing social links) must be made in **all
-six HTML files**. Look for the comments:
+five HTML files**. Look for the comments:
 
 ```html
 <!-- ============ NAVBAR (shared across all pages — edit in every file) ============ -->
@@ -53,7 +52,6 @@ Other than that, each page owns its own content in a straightforward way:
 | `about.html` | Personal story, Ant International case studies (problem/solution/architecture/impact) |
 | `projects.html` | DirectPay and PRiM case studies |
 | `worldskills.html` | Medals, training narrative, competition journey, photo gallery, lessons |
-| `blog.html` | Planned article cards (titles/teasers only — no article pages exist yet) |
 | `contact.html` | Contact cards (email, GitHub, LinkedIn, resume) |
 | `css/style.css` | All visual design — see "Retheming" below |
 | `js/script.js` | Navbar scroll behavior, active-link highlighting, AOS init, footer year |
@@ -94,16 +92,19 @@ Most of the photography on the site is real:
 - Hero photo (`index.html`) — `assets/profile.jpg`
 - About page team photo — `images/ant-international-team.jpg`
 - WorldSkills page — 7 real competition photos (`images/worldskills-*.jpg`)
+- Projects page screenshots — `images/directpay-screenshot.png` and
+  `images/prim-screenshot.png` (real product screenshots for DirectPay and
+  PRiM, replacing the former placeholder images)
+
+`about.html` now has no placeholder images — all four Ant International case
+studies moved straight from Architecture text to Impact & Metrics without an
+architecture diagram.
 
 What's still a placeholder (`images/placeholder-wide.svg`), and should be
 swapped for a real image before the site is considered finished:
 
-- `about.html` — 4 architecture diagrams (Payment Sandbox Optimization,
-  Real-Time Refund Withdrawals, Payment Account SaaS APIs, AI Translation
-  Extension case studies — 4 images across those case study blocks all use
-  the same placeholder)
-- `projects.html` — 4 images: architecture diagram + screenshots placeholder
-  for both DirectPay and PRiM
+- `projects.html` — 2 architecture-diagram placeholders (one each for
+  DirectPay and PRiM); the Screenshots images for both are already real.
 
 To replace a placeholder: drop the real image into `images/`, then update the
 matching `<img src="images/placeholder-wide.svg" ...>` tag to point at the new
@@ -161,10 +162,10 @@ in place in case a placeholder avatar is needed again.
 will be served from a different URL, and every hardcoded absolute URL in this
 project must be updated to match:
 
-- The `<link rel="canonical">` and `og:url` tags in the `<head>` of all six
+- The `<link rel="canonical">` and `og:url` tags in the `<head>` of all five
   HTML files
 - The `Sitemap:` line in `robots.txt`
-- All six `<loc>` entries in `sitemap.xml`
+- All five `<loc>` entries in `sitemap.xml`
 
 All internal links between pages use relative paths (`about.html`,
 `images/...`, `css/style.css`, etc.), so they work under any repo name or
