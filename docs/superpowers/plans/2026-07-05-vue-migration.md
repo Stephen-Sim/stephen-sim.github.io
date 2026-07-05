@@ -14,6 +14,19 @@
 - Content and visual design must NOT change EXCEPT the approved copy edits listed below. Same CSS custom properties, classes, and layout.
 - Base path `/` everywhere — the site is a GitHub USER site: repo `Stephen-Sim/stephen-sim.github.io` (user renames the current `portfolio` repo), served at `https://stephen-sim.github.io/`. Vite `base: '/'`, router `createWebHistory('/')`, canonical/OG URLs, sitemap and robots all use `https://stephen-sim.github.io/...`.
 
+## Approved retheme: "Serene Sage" light palette (applies after V1, before/with V2)
+
+User-supplied palette replaces the dark indigo theme across `src/assets/main.css`, favicon, and any hardcoded rgba() tints:
+- `--bg: #F1EAD8` (cream) · `--surface: #FAF6EC` · `--surface-2: #EFE7D3`
+- `--border: rgba(104, 96, 77, 0.18)` · `--border-hover: rgba(138, 142, 117, 0.55)`
+- `--text: #68604D` (dark olive body) · `--text-bright: #4C4638` (heading ink) · `--text-dim: #9A9078`
+- `--accent: #8A8E75` (sage) · `--accent-2: #68604D` (olive) · gradient sage→olive
+- Light sage `#BEC5A4` and sand `#D5C7AD` for tag tints, hover glows, hero radial glow
+- All `rgba(99,102,241,…)`/`rgba(167,139,250,…)` indigo tints → sage equivalents; white-alpha borders → dark-alpha; navbar scrolled glass + hero badge glass → cream glass with dark text; selection → light sage
+- `.medal-icon.excellence` violet → sage/olive; bronze stays #cd7f32
+- Hero `<strong class="text-light">` breaks on light bg → drop the class, add `.hero-tagline strong { color: var(--text-bright); }`
+- favicon.svg: cream rounded square, "S" in sage→olive gradient
+
 ## Approved copy/content changes (apply in V2)
 
 - Hero tagline (humble rewrite, user-mandated): `Backend engineer at <strong class="text-light">Ant International</strong>, working on the payment systems that serve e-commerce across Southeast Asia. Represented Malaysia at <strong class="text-light">WorldSkills Lyon 2024</strong>.`

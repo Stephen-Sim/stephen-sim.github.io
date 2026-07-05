@@ -89,7 +89,7 @@ watch(
             <RouterLink class="nav-link" to="/contact" active-class="active">Contact</RouterLink>
           </li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-            <a class="btn-accent btn-sm-nav" href="assets/resume.pdf" download>
+            <a class="btn-accent btn-sm-nav" href="/assets/resume.pdf" download>
               <i class="fa-solid fa-download me-2"></i>Resume
             </a>
           </li>
