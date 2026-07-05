@@ -232,7 +232,7 @@ a:hover { color: var(--text-bright); }
   width: 100%;                    /* fill the hero column for presence */
   aspect-ratio: 4 / 5;            /* portrait crop from the source photo */
   object-fit: cover;
-  object-position: 30% 28%;       /* keep the face in frame (it sits left of center) */
+  object-position: 68% 30%;       /* keep the face in frame (it sits right of center in this photo) */
   border-radius: 24px;
 }
 .hero-badge { /* floating glass chip overlapping the photo */
@@ -401,3 +401,9 @@ a:hover { color: var(--text-bright); }
 }
 .contact-card h3 { font-size: 1rem; margin-bottom: 0.15rem; }
 .contact-card p { font-size: 0.88rem; margin: 0; color: var(--text-dim); }
+
+/* Hero tagline no longer uses a "text-light" class (dropped so the copy
+   works under the upcoming light retheme too) — this keeps <strong> text
+   inside the hero tagline and section paragraphs visually brighter than
+   the surrounding body copy. */
+.hero-tagline strong, .section p strong { color: var(--text-bright); }

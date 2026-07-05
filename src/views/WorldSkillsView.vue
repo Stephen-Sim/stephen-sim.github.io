@@ -1,12 +1,176 @@
-<!-- Minimal stub for Task V1. Task V2 replaces this with the real
-     WorldSkills page content copied verbatim from the old worldskills.html. -->
-<script setup lang="ts"></script>
+<!-- WorldSkills page: the competition journey, medals, preparation, and
+     photo gallery. Content copied verbatim from the old worldskills.html. -->
+<script setup lang="ts">
+import { useHead } from '@unhead/vue';
+
+const title = 'WorldSkills Journey — Stephen Sim';
+const description = 'Representing Malaysia at WorldSkills: Bronze at ASEAN Singapore 2023 and Asia Abu Dhabi 2023, Medallion for Excellence at Lyon 2024.';
+const url = 'https://stephen-sim.github.io/worldskills';
+
+useHead({
+  title,
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:url', content: url },
+    { name: 'twitter:card', content: 'summary' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+  ],
+  link: [{ rel: 'canonical', href: url }],
+});
+</script>
 
 <template>
   <main id="main">
-    <section class="section page-top">
+    <!-- Intro: overview of the WorldSkills journey representing Malaysia -->
+    <section class="section page-top" id="intro">
       <div class="container">
-        <h1 class="section-title">WorldSkills</h1>
+        <p class="section-eyebrow" data-aos="fade-up">WorldSkills</p>
+        <h1 class="section-title" data-aos="fade-up" data-aos-delay="100">Competing for Malaysia</h1>
+        <p class="section-lead" data-aos="fade-up" data-aos-delay="200">From February 2023 to September 2024, I trained and competed as Malaysia's representative in IT Software Solutions for Business under Jabatan Pembangunan Kemahiran (JPK) — a journey through three international competitions on three stages.</p>
+      </div>
+    </section>
+
+    <!-- Medals showcase: the three medals earned across the three competitions -->
+    <section class="section" id="medals">
+      <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="glass-card medal-card">
+            <div class="medal-icon bronze"><i class="fa-solid fa-medal"></i></div>
+            <h3 class="h5">Bronze Medal</h3>
+            <p class="mb-1">WorldSkills ASEAN — Singapore</p>
+            <p class="mono-date">2023</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card medal-card">
+            <div class="medal-icon bronze"><i class="fa-solid fa-medal"></i></div>
+            <h3 class="h5">Bronze Medal</h3>
+            <p class="mb-1">WorldSkills Asia — Abu Dhabi</p>
+            <p class="mono-date">2023</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card medal-card">
+            <div class="medal-icon excellence"><i class="fa-solid fa-award"></i></div>
+            <h3 class="h5">Medallion for Excellence</h3>
+            <p class="mb-1">47th WorldSkills — Lyon, France</p>
+            <p class="mono-date">2024</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Preparation: what training for WorldSkills actually involved -->
+    <section class="section" id="preparation">
+      <div class="container">
+        <p class="section-eyebrow" data-aos="fade-up">Preparation</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Training like it's the real thing</h2>
+        <p class="mt-4" data-aos="fade-up">WorldSkills isn't a coding contest — it's a full software delivery marathon. Each competition compresses the entire development lifecycle into timed modules: requirements analysis, system design, database modeling, implementation, testing, and deployment. Training meant building complete business applications in .NET Core and MSSQL, over and over, against the clock — then reviewing every decision to shave minutes and eliminate mistakes.</p>
+        <img class="img-fluid rounded mt-3" src="/images/worldskills-competing.jpg" alt="Stephen competing at his workstation" data-aos="fade-up">
+      </div>
+    </section>
+
+    <!-- Competition journey: narrative of the three competitions in order -->
+    <section class="section" id="journey">
+      <div class="container">
+        <p class="section-eyebrow" data-aos="fade-up">The Journey</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Three stages, three lessons</h2>
+
+        <div class="mt-4" data-aos="fade-up">
+          <p><strong>Singapore 2023 — WorldSkills ASEAN.</strong> My first taste of international competition. Learning to perform under observation, manage nerves, and trust preparation. Result: Bronze Medal.</p>
+          <img class="img-fluid rounded mt-3" src="/images/worldskills-asean-podium.jpg" alt="Awards stage at WorldSkills ASEAN Singapore 2023 — Bronze for Stephen Sim, Malaysia" data-aos="fade-up">
+        </div>
+
+        <div class="mt-4" data-aos="fade-up">
+          <p><strong>Abu Dhabi 2023 — WorldSkills Asia.</strong> A bigger stage and stronger field. I refined my speed-versus-correctness trade-offs and my module time management. Result: Bronze Medal.</p>
+          <img class="img-fluid rounded mt-3" src="/images/worldskills-asia-podium.jpg" alt="Stephen on the podium at WorldSkills Asia Abu Dhabi 2023" data-aos="fade-up">
+        </div>
+
+        <div class="mt-4" data-aos="fade-up">
+          <p><strong>Lyon 2024 — the 47th WorldSkills.</strong> The world final, with the best young developers from every continent. Four days of competition modules in front of thousands of spectators. Result: Medallion for Excellence — awarded for meeting the international standard of excellence.</p>
+          <img class="img-fluid rounded mt-3" src="/images/worldskills-lyon-booth.jpg" alt="Stephen competing in the IT Software Solutions for Business booth at WorldSkills Lyon 2024" data-aos="fade-up">
+        </div>
+
+        <!-- Gallery: additional photos from the competitions (chronological) -->
+        <div class="row g-4 mt-2">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-asean-competing.jpg" alt="Stephen competing at WorldSkills ASEAN Singapore 2023">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-asean-results.jpg" alt="Results screen: Bronze for Stephen Sim at WorldSkills ASEAN Singapore 2023">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-asia-flag.jpg" alt="Stephen with the Malaysian flag and his Bronze medal in Abu Dhabi">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-asia-group.jpg" alt="International competitors of IT Software Solutions for Business at WorldSkills Asia Abu Dhabi 2023">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-lyon-competing.jpg" alt="Competing under the Malaysian flag at WorldSkills Lyon 2024">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-lyon-opening.jpg" alt="Stephen carrying the Malaysia sign at the WorldSkills Lyon 2024 opening ceremony">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-lyon-expert.jpg" alt="Stephen with his expert at WorldSkills Lyon 2024">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-lyon-bellecour.jpg" alt="Stephen at Place Bellecour in Lyon, France">
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <img class="img-fluid rounded gallery-photo" src="/images/worldskills-lyon-medallion-poster.jpg" alt="Official JPK congratulations poster for the Medallion for Excellence at Lyon 2024">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lessons learned: takeaways from the competition experience -->
+    <section class="section" id="lessons">
+      <div class="container">
+        <p class="section-eyebrow" data-aos="fade-up">Takeaways</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">What competition taught me</h2>
+        <div class="row g-4 mt-2">
+          <div class="col-md-6" data-aos="fade-up">
+            <div class="glass-card">
+              <h3 class="h5">Pressure is a skill</h3>
+              <p class="mb-0">Delivering working software with a countdown clock running rewires how you handle production incidents. Calm is trainable.</p>
+            </div>
+          </div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card">
+              <h3 class="h5">Scope ruthlessly</h3>
+              <p class="mb-0">When time is fixed, scope is the only variable. Ship the core flow first; polish is a bonus, not a foundation.</p>
+            </div>
+          </div>
+          <div class="col-md-6" data-aos="fade-up">
+            <div class="glass-card">
+              <h3 class="h5">Practice the whole pipeline</h3>
+              <p class="mb-0">Speed comes from having done requirements-to-deployment so many times that nothing is novel on the day.</p>
+            </div>
+          </div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card">
+              <h3 class="h5">Standards matter</h3>
+              <p class="mb-0">WorldSkills grades against an international standard, not against other competitors. Aim at the standard, not the field.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results CTA: link out to the official WorldSkills results -->
+    <section class="section pt-0" id="results">
+      <div class="container">
+        <div class="cta-strip" data-aos="fade-up">
+          <h2 class="section-title mb-2">Official results</h2>
+          <a class="btn-ghost" href="https://results.worldskills.org/results?event=579&amp;offset=10&amp;skill=1680&amp;base_skill=221" target="_blank" rel="noopener">View official WorldSkills results</a>
+        </div>
       </div>
     </section>
   </main>
