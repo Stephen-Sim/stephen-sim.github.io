@@ -30,7 +30,7 @@ useHead({
       <div class="container">
         <p class="section-eyebrow" data-aos="fade-up">Contact</p>
         <h1 class="section-title" data-aos="fade-up" data-aos-delay="100">Say hello</h1>
-        <p class="section-lead" data-aos="fade-up" data-aos-delay="200">The fastest way to reach me is email. I'm always happy to talk payments, backend engineering, or WorldSkills.</p>
+        <p class="section-lead" data-aos="fade-up" data-aos-delay="200">The fastest way to reach me is email. I'm always happy to talk about any opportunity — work, projects, or collaboration.</p>
 
         <div class="row g-4">
           <!-- Email -->
