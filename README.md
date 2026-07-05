@@ -1,163 +1,131 @@
 # ssim-profile
 
-Stephen Sim's personal portfolio website — a static, five-page site covering his
-background as a backend engineer, his WorldSkills competition history, project
-deep dives, and contact info.
+Stephen Sim's personal portfolio website.
 
 ## What this is
 
-A plain HTML/CSS/JS static site. No build step, no framework, no bundler, no
-package.json. Five pages share one design system (`css/style.css`) and one
-small script file (`js/script.js`). Layout uses Bootstrap 5 (grid + navbar
-collapse only) loaded from a CDN; icons come from Font Awesome; scroll-reveal
-animation comes from AOS. All three are loaded via `<link>`/`<script>` tags
-pointing at CDNs — there is nothing to `npm install`.
+A Vue 3 + TypeScript + Vite single-page app covering Stephen's background as a
+backend engineer, his WorldSkills competition history, project deep dives, and
+contact info. Styled with the "Serene Sage" light theme. Deployed to GitHub
+Pages at **https://stephen-sim.github.io/**.
 
-Pages:
+## Tech stack
 
-- `index.html` — home / hero / career timeline / skills
-- `about.html` — story + Ant International experience case studies
-- `projects.html` — DirectPay and PRiM project deep dives
-- `worldskills.html` — WorldSkills Singapore/Abu Dhabi/Lyon journey
-- `contact.html` — email, GitHub, LinkedIn, resume download
+- **Vue 3** — `<script setup lang="ts">` composition API throughout
+- **vue-router** — history mode (`createWebHistory('/')`), 5 routed views
+- **@unhead/vue** — per-route SEO meta (title, description, canonical, Open
+  Graph/Twitter tags), set via `useHead` in each view
+- **AOS** (Animate On Scroll) — scroll-reveal animations, installed from npm
+  and re-run after each route change
+- **Bootstrap 5** — CDN only, used for the grid and navbar collapse behavior
+  (not npm-installed)
+- **Font Awesome + Google Fonts** — CDN `<link>` tags in `index.html`
+- **Vite** — dev server and build, with `vue-tsc` type-checking gating every
+  build
 
-## Local preview
+## Local development
 
-There is no build step. Just open `index.html` directly in a browser
-(double-click it, or `start index.html` / drag it into a browser tab). Every
-link between pages is a relative path (`about.html`, `images/...`,
-`assets/...`), so the site works correctly straight off the filesystem via
-`file://` — no local server required. (A local server, e.g. `npx serve` or
-the VS Code "Live Server" extension, works too if you prefer it, but it is
-optional.)
+```bash
+npm install
+npm run dev          # starts the dev server at http://localhost:5173
+npm run type-check   # runs vue-tsc --noEmit on its own
+npm run build         # type-checks, builds to dist/, then copies
+                       # dist/index.html -> dist/404.html for SPA deep links
+npm run preview       # serves the dist/ build locally for a final check
+```
+
+## Project structure
+
+```
+index.html                 Vite entry HTML (CDN links, #app div, loads src/main.ts)
+src/
+  main.ts                  createApp + router + unhead + AOS init
+  router/index.ts           5 routes + scrollBehavior
+  App.vue                   <NavBar/> <RouterView/> <SiteFooter/>
+  components/
+    NavBar.vue               shared nav (scroll blur, mobile collapse, active link)
+    SiteFooter.vue           shared footer (computed copyright year)
+  views/
+    HomeView.vue             hero, career timeline, skills grid
+    AboutView.vue            personal story, Ant International case studies
+    ProjectsView.vue         DirectPay and PRiM project deep dives
+    WorldSkillsView.vue      medals, training narrative, competition gallery
+    ContactView.vue          email, GitHub, LinkedIn, resume download
+  assets/
+    main.css                 whole design system (CSS custom properties + rules)
+public/                     static files served as-is (favicon, robots.txt,
+                            sitemap.xml, images/, assets/resume.pdf, etc.)
+.github/workflows/deploy.yml  GitHub Actions build + deploy to Pages
+```
 
 ## Editing content
 
-Every page repeats the same navbar and footer markup — **there is no shared
-include mechanism**, so any change to navigation (adding a page, renaming a
-link, changing the resume path, editing social links) must be made in **all
-five HTML files**. Look for the comments:
-
-```html
-<!-- ============ NAVBAR (shared across all pages — edit in every file) ============ -->
-...
-<!-- ============ FOOTER (shared across all pages — edit in every file) ============ -->
-```
-
-Other than that, each page owns its own content in a straightforward way:
+Each view owns its own page's content — there's no more copy-pasted
+navbar/footer markup to keep in sync across files, since `NavBar.vue` and
+`SiteFooter.vue` are shared components edited once.
 
 | File | Owns |
 |---|---|
-| `index.html` | Hero copy, career timeline, skills grid, home CTA |
-| `about.html` | Personal story, Ant International case studies (problem/solution/architecture/impact) |
-| `projects.html` | DirectPay and PRiM case studies |
-| `worldskills.html` | Medals, training narrative, competition journey, photo gallery, lessons |
-| `contact.html` | Contact cards (email, GitHub, LinkedIn, resume) |
-| `css/style.css` | All visual design — see "Retheming" below |
-| `js/script.js` | Navbar scroll behavior, active-link highlighting, AOS init, footer year |
+| `src/views/HomeView.vue` | Hero copy, career timeline, skills grid, home CTA |
+| `src/views/AboutView.vue` | Personal story, Ant International case studies |
+| `src/views/ProjectsView.vue` | DirectPay and PRiM case studies |
+| `src/views/WorldSkillsView.vue` | Medals, training narrative, competition journey, photo gallery |
+| `src/views/ContactView.vue` | Contact cards (email, GitHub, LinkedIn, resume) |
+| `src/components/NavBar.vue` | Site navigation — edit once, applies everywhere |
+| `src/components/SiteFooter.vue` | Site footer — edit once, applies everywhere |
+| `src/assets/main.css` | All visual design — see "Retheming" below |
 
 ### Retheming via CSS variables
 
-`css/style.css` defines its whole design system as CSS custom properties at
-the top of the file, in `:root`:
+`src/assets/main.css` defines the whole design system as CSS custom
+properties at the top of the file, in `:root`. The current theme is "Serene
+Sage" — a light palette:
 
 ```css
 :root {
-  --bg: #0a0a0f;             /* page background */
-  --surface: #12121a;        /* card/panel background */
-  --surface-2: #181824;      /* hover-state surface */
-  --border: rgba(255,255,255,0.08);
-  --border-hover: rgba(167,139,250,0.45);
-  --text: #9ca3af;           /* body text */
-  --text-bright: #f9fafb;    /* headings */
-  --text-dim: #6b7280;       /* meta text, dates */
-  --accent: #6366f1;         /* indigo */
-  --accent-2: #a78bfa;       /* violet */
-  --gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', var(--font-body);
-  --font-mono: 'JetBrains Mono', monospace;
-  --radius: 14px;
-  --transition: 0.25s ease;
+  --bg: #F1EAD8;       /* cream page background */
+  --accent: #8A8E75;   /* sage accent */
+  --accent-2: #68604D; /* dark olive accent/body text */
+  /* light sage (#BEC5A4) and sand (#D5C7AD) are used for tag tints,
+     hover glows, and the hero radial glow */
 }
 ```
 
-Changing colors, fonts, corner radius, or transition speed here updates the
-whole site — no need to hunt through individual rules.
+Changing colors, fonts, corner radius, or transition speed in this block
+updates the whole site — no need to hunt through individual rules.
 
-## Replacing remaining placeholders
+## Deployment
 
-Most of the photography on the site is real:
+Every push to `main` runs `.github/workflows/deploy.yml`: `npm ci` →
+type-check + build → deploy the `dist/` output to GitHub Pages via
+`actions/deploy-pages`.
 
-- Hero photo (`index.html`) — `assets/profile.jpg`
-- About page team photo — `images/ant-international-team.jpg`
-- WorldSkills page — 13 real competition photos (`images/worldskills-*.jpg`)
-- Projects page screenshots — `images/directpay-screenshot.png` and
-  `images/prim-screenshot.png` (real product screenshots for DirectPay and
-  PRiM, replacing the former placeholder images)
+**One-time repo setup:** go to **Settings → Pages** and set **Source** to
+"GitHub Actions" (not "Deploy from a branch"). Leave the custom-domain field
+**empty** — this is a GitHub user site served directly at
+`https://stephen-sim.github.io/`, not a custom domain.
 
-There are no placeholder images left anywhere on the site: `about.html`'s case
-studies are intentionally text-only, and each project on `projects.html` shows
-one real screenshot. `images/placeholder-wide.svg` is kept in the repo unused,
-in case you ever want a styled placeholder while adding a new image.
+SPA deep links (e.g. loading `/about` directly, or refreshing on it) work
+because the build copies `index.html` to `404.html`; GitHub Pages serves that
+404 page for any unknown path, which boots the Vue app and lets the router
+take over.
 
-There are also two unused photos already sitting in `images/`:
-`images/dbfiesta-utem-first-place.jpg` and `images/worldskills-asia-group.jpg`
-(an international group photo from Abu Dhabi). Neither is referenced from any
-page — add them to `about.html`/`worldskills.html` (or wherever fits) if you
-want them included.
+`robots.txt` lives at the domain root (`public/robots.txt` → served at
+`https://stephen-sim.github.io/robots.txt`), which crawlers honor normally
+since this is a user site, not a project page under a subpath. It points to
+the sitemap at `https://stephen-sim.github.io/sitemap.xml`.
 
-There is also `assets/profile-placeholder.svg`, which is kept in the repo as
-an unreferenced fallback avatar (the original placeholder used before
-`assets/profile.jpg` was added) — it isn't linked from any page but is left
-in place in case a placeholder avatar is needed again.
+## Assets note
 
-## Before you publish
+A few files are kept in the repo unused, in case they're needed later:
 
-- **Consider a dedicated Open Graph image.** Right now there's no
-  `og:image`/`twitter:image` tag on any page, so social shares will show no
-  preview image (or a platform-default fallback). If you want a polished link
-  preview on LinkedIn/Twitter/etc., create a ~1200×630 image and add
-  `<meta property="og:image" content="...">` and
-  `<meta name="twitter:image" content="...">` to every page's `<head>`.
-- **Favicon is SVG-only.** `favicon.svg` is the only favicon asset — there is
-  no `.ico` fallback. All modern browsers (Chrome, Firefox, Edge, Safari 16+)
-  support SVG favicons directly, so this is intentional, not an oversight;
-  only very old browsers won't show it.
+- `public/images/dbfiesta-utem-first-place.jpg` — an available photo not
+  currently referenced from any page
+- `public/images/placeholder-wide.svg` and
+  `public/assets/profile-placeholder.svg` — placeholder graphics, kept in
+  case a placeholder image is ever needed again
 
-## Deploying to GitHub Pages
-
-1. Create a new GitHub repository named `ssim-profile` under the `Stephen-Sim`
-   account.
-2. Push this project to it:
-   ```
-   git remote add origin https://github.com/Stephen-Sim/ssim-profile.git
-   git push -u origin build-site
-   ```
-   (or merge `build-site` into your default branch first, then push that).
-3. In the repo, go to **Settings → Pages**.
-4. Under "Build and deployment", choose **Deploy from a branch**, pick the
-   branch you pushed (root `/`), and save.
-5. The site will be published at:
-   `https://stephen-sim.github.io/ssim-profile/`
-
-**If you use a different repository name or GitHub account/org**, the site
-will be served from a different URL, and every hardcoded absolute URL in this
-project must be updated to match:
-
-- The `<link rel="canonical">` and `og:url` tags in the `<head>` of all five
-  HTML files
-- The `Sitemap:` line in `robots.txt`
-- All five `<loc>` entries in `sitemap.xml`
-
-All internal links between pages use relative paths (`about.html`,
-`images/...`, `css/style.css`, etc.), so they work under any repo name or
-subpath without changes — only the absolute canonical/OG/sitemap URLs above
-need updating.
-
-Note that because this is a GitHub *project* page (served from
-`/ssim-profile/` rather than the domain root), `robots.txt` at
-`/ssim-profile/robots.txt` is not read by crawlers — `robots.txt` is only
-honored when it sits at the actual domain root (`/robots.txt`) — so submit
-`sitemap.xml` directly in Google Search Console instead of relying on the
-`Sitemap:` line in `robots.txt` to be discovered.
+There is currently no Open Graph/Twitter share image (`og:image`) set on any
+page — social link previews will show no image or a platform default. Adding
+a ~1200×630 image and wiring it up in each view's `useHead` call is an
+optional follow-up.
