@@ -101,16 +101,6 @@ a:hover { color: var(--text-bright); }
   background: var(--surface);
   transform: translateY(-2px);
 }
-.btn-sm-nav { /* compact resume button inside the navbar */
-  display: inline-block;
-  background: var(--gradient);
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.85rem;
-  padding: 0.45rem 1rem;
-  border-radius: 8px;
-}
-.btn-sm-nav:hover { color: #fff; box-shadow: 0 4px 18px rgba(104, 96, 77, 0.4); }
 
 /* ---------- Navbar ---------- */
 .site-nav {

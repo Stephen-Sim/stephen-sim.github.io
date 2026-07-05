@@ -4,7 +4,7 @@
 import { useHead } from '@unhead/vue';
 
 const title = 'Contact — Stephen Sim';
-const description = "Get in touch with Stephen Sim — email, GitHub, LinkedIn, resume.";
+const description = "Get in touch with Stephen Sim — email, GitHub, LinkedIn.";
 const url = 'https://stephen-sim.github.io/contact';
 
 useHead({
@@ -66,16 +66,6 @@ useHead({
             </a>
           </div>
 
-          <!-- Resume -->
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <a class="glass-card contact-card" href="/assets/resume.pdf" download>
-              <i class="fa-solid fa-file-arrow-down contact-icon"></i>
-              <div>
-                <h3>Resume</h3>
-                <p>Download PDF</p>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </section>

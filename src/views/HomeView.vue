@@ -76,8 +76,8 @@ const timelineItems: TimelineItem[] = [
   },
   {
     date: '2024',
-    title: 'WorldSkills, Lyon',
-    detail: 'Medallion for Excellence at the 47th WorldSkills competition.',
+    title: 'WorldSkills Competition, Lyon',
+    detail: 'The final stage — Medallion for Excellence at the 47th WorldSkills Competition.',
   },
   {
     date: '2025 — Now',
@@ -108,7 +108,6 @@ function toggleItem(i: number) {
               providing merchants with payment service integration. Represented Malaysia at <strong>WorldSkills Lyon 2024</strong>.
             </p>
             <div class="d-flex flex-wrap gap-3 mt-4">
-              <a class="btn-accent" href="/assets/resume.pdf" download><i class="fa-solid fa-download me-2"></i>Download Resume</a>
               <a class="btn-ghost" href="https://github.com/Stephen-Sim" target="_blank" rel="noopener"><i class="fa-brands fa-github me-2"></i>GitHub</a>
               <a class="btn-ghost" href="https://www.linkedin.com/in/stephen-sim-343775212" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in me-2"></i>LinkedIn</a>
             </div>
