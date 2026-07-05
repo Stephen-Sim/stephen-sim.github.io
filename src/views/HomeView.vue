@@ -104,8 +104,8 @@ function toggleItem(i: number) {
             <p class="hero-eyebrow">Backend Engineer · Kuala Lumpur, Malaysia</p>
             <h1>Stephen <span class="gradient-text">Sim</span></h1>
             <p class="hero-tagline">
-              Backend engineer at <strong>Ant International</strong>, working on the payment systems that serve
-              e-commerce across Southeast Asia. Represented Malaysia at <strong>WorldSkills Lyon 2024</strong>.
+              Backend engineer at <strong>Ant International</strong>, part of the <strong>Antom</strong> team —
+              providing merchants with payment service integration. Represented Malaysia at <strong>WorldSkills Lyon 2024</strong>.
             </p>
             <div class="d-flex flex-wrap gap-3 mt-4">
               <a class="btn-accent" href="/assets/resume.pdf" download><i class="fa-solid fa-download me-2"></i>Download Resume</a>
