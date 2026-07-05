@@ -10,7 +10,7 @@ const year = computed(() => new Date().getFullYear());
 <template>
   <footer class="site-footer">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <p class="footer-copy mb-0">© <span id="year">{{ year }}</span> Stephen Sim. Built with plain HTML, CSS &amp; JavaScript.</p>
+      <p class="footer-copy mb-0">© <span id="year">{{ year }}</span> Stephen Sim.</p>
       <div class="footer-links">
         <a href="https://github.com/Stephen-Sim" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/stephen-sim-343775212" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
