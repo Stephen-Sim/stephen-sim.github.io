@@ -144,18 +144,20 @@ function toggleItem(i: number) {
         <h2 class="section-title" data-aos="fade-up">The journey so far</h2>
         <p class="section-lead" data-aos="fade-up" data-aos-delay="100">Hover or tap each milestone.</p>
         <div class="timeline">
-          <div
-            v-for="(item, i) in timelineItems"
-            :key="item.title"
-            class="timeline-item"
-            :class="{ open: openItem === i }"
-            data-aos="fade-up"
-            @click="toggleItem(i)"
-          >
-            <span class="timeline-dot"></span>
-            <p class="timeline-date">{{ item.date }}</p>
-            <h3>{{ item.title }}</h3>
-            <p class="timeline-detail">{{ item.detail }}</p>
+          <!-- data-aos lives on the outer wrapper, NOT the element whose class
+               Vue toggles: AOS adds its own classes straight to the DOM, and a
+               Vue class-binding update would wipe them (hiding the item). -->
+          <div v-for="(item, i) in timelineItems" :key="item.title" data-aos="fade-up">
+            <div
+              class="timeline-item"
+              :class="{ open: openItem === i }"
+              @click="toggleItem(i)"
+            >
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">{{ item.date }}</p>
+              <h3>{{ item.title }}</h3>
+              <p class="timeline-detail">{{ item.detail }}</p>
+            </div>
           </div>
         </div>
       </div>
