@@ -96,19 +96,10 @@ Most of the photography on the site is real:
   `images/prim-screenshot.png` (real product screenshots for DirectPay and
   PRiM, replacing the former placeholder images)
 
-`about.html` now has no placeholder images — all four Ant International case
-studies moved straight from Architecture text to Impact & Metrics without an
-architecture diagram.
-
-What's still a placeholder (`images/placeholder-wide.svg`), and should be
-swapped for a real image before the site is considered finished:
-
-- `projects.html` — 2 architecture-diagram placeholders (one each for
-  DirectPay and PRiM); the Screenshots images for both are already real.
-
-To replace a placeholder: drop the real image into `images/`, then update the
-matching `<img src="images/placeholder-wide.svg" ...>` tag to point at the new
-filename and write a real `alt` description.
+There are no placeholder images left anywhere on the site: `about.html`'s case
+studies are intentionally text-only, and each project on `projects.html` shows
+one real screenshot. `images/placeholder-wide.svg` is kept in the repo unused,
+in case you ever want a styled placeholder while adding a new image.
 
 There are also two unused photos already sitting in `images/`:
 `images/dbfiesta-utem-first-place.jpg` and `images/worldskills-asia-group.jpg`
@@ -128,9 +119,6 @@ in place in case a placeholder avatar is needed again.
   stack)` note right under their "Technologies" tag list. Confirm the actual
   stack for each project, update the `<span class="tag">` list accordingly,
   and delete the draft note.
-- **Swap the remaining placeholder diagrams/screenshots** (see above) —
-  publishing with `placeholder-wide.svg` still in place is fine as an interim
-  state but should not be the final version.
 - **Consider a dedicated Open Graph image.** Right now there's no
   `og:image`/`twitter:image` tag on any page, so social shares will show no
   preview image (or a platform-default fallback). If you want a polished link
