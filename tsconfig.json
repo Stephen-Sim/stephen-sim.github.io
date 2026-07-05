@@ -1,0 +1,8 @@
+{
+  "//": "Root config: just points TypeScript-aware tools at the two real configs below — one for the browser app code, one for the Node-only build config (vite.config.ts).",
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

@@ -143,7 +143,11 @@ a:hover { color: var(--text-bright); }
   transition: color var(--transition);
 }
 .site-nav .nav-link:hover { color: var(--text-bright); }
-.site-nav .nav-link.active { color: var(--text-bright); }
+/* .router-link-active is added automatically by vue-router on the
+   matching NavLink — this keeps the "current page" highlight working
+   the same way it did with the old plain-JS active-link logic. */
+.site-nav .nav-link.active,
+.site-nav .nav-link.router-link-active { color: var(--text-bright); }
 .nav-toggle { border: 1px solid var(--border); color: var(--text-bright); font-size: 1rem; }
 .nav-toggle:focus { box-shadow: none; }
 /* Mobile dropdown panel */
