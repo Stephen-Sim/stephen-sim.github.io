@@ -214,19 +214,45 @@ a:hover { color: var(--text-bright); }
 .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin: 0.5rem 0 1rem; }
 .hero-tagline { font-size: 1.15rem; max-width: 560px; }
 .hero-photo-frame { /* gradient ring + soft glow around the profile photo */
-  display: inline-block;
+  position: relative;
+  display: block;
+  max-width: 440px;
+  margin: 0 auto;
   padding: 4px;
-  border-radius: 26px;
+  border-radius: 28px;
   background: var(--gradient);
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 24px 80px rgba(99, 102, 241, 0.4);
 }
 .hero-photo {
   display: block;
-  width: min(320px, 72vw);
+  width: 100%;                    /* fill the hero column for presence */
   aspect-ratio: 4 / 5;            /* portrait crop from the source photo */
   object-fit: cover;
   object-position: 68% 30%;       /* keep the face in frame (it sits right of center) */
-  border-radius: 22px;
+  border-radius: 24px;
+}
+.hero-badge { /* floating glass chip overlapping the photo */
+  position: absolute;
+  left: -18px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  background: rgba(18, 18, 26, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-hover);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--text-bright);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  text-align: left;
+}
+.hero-badge i { color: var(--accent-2); font-size: 1.2rem; }
+.hero-badge small { display: block; color: var(--text-dim); font-size: 0.72rem; }
+@media (max-width: 576px) {
+  .hero-badge { left: 10px; }     /* keep the chip on-screen on small phones */
 }
 
 /* ---------- Career timeline (index.html) ---------- */
