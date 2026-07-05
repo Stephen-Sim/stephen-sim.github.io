@@ -75,7 +75,7 @@
   <div class="container">
     <p class="section-eyebrow" data-aos="fade-up">Experience</p>
     <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Ant International — case studies</h2>
-    <p class="section-lead" data-aos="fade-up" data-aos-delay="200">Java Backend Engineer · Mar 2025 – Present. Selected work, told the way engineers actually think: problem, solution, impact.</p>
+    <p class="section-lead" data-aos="fade-up" data-aos-delay="200">Java Backend Engineer · Mar 2025 – Present. My team owns the payment account side of the platform — wallets, refunds, and fund transfers for regional e-commerce merchants like Lazada and Daraz. Selected work, told the way engineers actually think: problem, solution, impact.</p>
 
     <!-- Team photo: Ant International Malaysia office -->
     <img class="img-fluid rounded mb-4" src="images/ant-international-team.jpg" alt="Stephen with the Ant International team in Malaysia" data-aos="fade-up">
@@ -108,26 +108,42 @@
       <p class="case-label">Solution</p>
       <p>Enabled a real-time withdrawal flow from the Lazada PH wallet to user bank accounts, removing the batch settlement wait.</p>
       <p class="case-label">Architecture</p>
-      <p>Event-driven flow on the Payment Account SaaS platform — withdrawal requests processed through asynchronous messaging with idempotent handling, so a payout is never lost or duplicated.</p>
+      <p>Event-driven flow on the payment account platform — withdrawal requests processed through asynchronous messaging with idempotent handling, so a payout is never lost or duplicated.</p>
       <p class="case-label">Impact &amp; Metrics</p>
       <p class="metric-highlight">T+1 &rarr; real-time</p>
       <p>Customers receive refund money in their bank accounts immediately instead of the next day.</p>
     </article>
 
     <article class="case-study" data-aos="fade-up">
-      <h3>Payment Account SaaS APIs</h3>
+      <h3>Refund Coupon Migration — Lazada</h3>
       <div class="mt-2">
-        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
-        <span class="tag">Redis</span>
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Payment APIs</span>
+        <span class="tag">MySQL</span>
       </div>
       <p class="case-label">Problem</p>
-      <p>Regional e-commerce platforms — including Lazada and Daraz — depend on the Payment Account SaaS microservice APIs; they must evolve continuously without breaking merchant integrations.</p>
+      <p>Refund coupon management historically lived inside Ant International's payment flow. Lazada wanted to manage refund coupons on their own platform — leaving Ant International responsible only for moving the money.</p>
       <p class="case-label">Solution</p>
-      <p>Maintain and enhance these APIs — new capabilities, performance improvements, and careful backward compatibility for every change.</p>
+      <p>Developed a new Fund Transfer API that carries over the historical flow's behavior — including the coupon checks previously handled inside the Ant flow — so Lazada could take over coupon management without breaking a single existing refund path.</p>
       <p class="case-label">Architecture</p>
-      <p>Multi-tenant SaaS microservices serving merchants across Southeast Asia, built on the Java/Spring Boot stack with MySQL and Redis.</p>
+      <p>A new fund-transfer path on the payment account platform, designed for backward compatibility with the legacy coupon-refund flow throughout the migration.</p>
       <p class="case-label">Impact &amp; Metrics</p>
-      <p>Stable payment account operations for major regional e-commerce platforms.</p>
+      <p>A clean separation of responsibilities: Lazada owns the coupon experience, Ant International owns the fund transfer — with the migration invisible to end users.</p>
+    </article>
+
+    <article class="case-study" data-aos="fade-up">
+      <h3>AI Troubleshooting Skill &amp; Case Management</h3>
+      <div class="mt-2">
+        <span class="tag">Java</span><span class="tag">AI</span><span class="tag">Harness Engineering</span>
+        <span class="tag">Vector Search</span>
+      </div>
+      <p class="case-label">Problem</p>
+      <p>Troubleshooting payment issues across distributed services is slow and expertise-heavy: engineers check environments, pull trace and flow logs, read the relevant code, and hunt for the fault — from scratch, every single case.</p>
+      <p class="case-label">Solution</p>
+      <p>With my team, built an AI troubleshooting skill using harness engineering: the investigation runs as staged phases — environment checks, trace and flow log collection, pulling the codebase of the affected flow, expert fault-and-defect analysis, and automatic upload of the final report to Yuque. Alongside it, a historical case management system tracks every case and uses vector search to surface similar past cases, so solved problems get reused instead of re-investigated.</p>
+      <p class="case-label">Architecture</p>
+      <p>A multi-phase agent harness that orchestrates each diagnostic step in sequence, backed by a vector-search case store that matches new incidents against the history of resolved ones.</p>
+      <p class="case-label">Impact &amp; Metrics</p>
+      <p>Troubleshooting that used to require senior engineers walking every step by hand now runs as a repeatable pipeline — and the team's hard-won debugging knowledge compounds instead of evaporating.</p>
     </article>
 
     <article class="case-study" data-aos="fade-up">
