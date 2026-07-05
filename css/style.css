@@ -213,10 +213,20 @@ a:hover { color: var(--text-bright); }
 .hero-eyebrow { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-2); letter-spacing: 0.1em; }
 .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin: 0.5rem 0 1rem; }
 .hero-tagline { font-size: 1.15rem; max-width: 560px; }
+.hero-photo-frame { /* gradient ring + soft glow around the profile photo */
+  display: inline-block;
+  padding: 4px;
+  border-radius: 26px;
+  background: var(--gradient);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.35);
+}
 .hero-photo {
-  width: 100%; max-width: 320px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+  display: block;
+  width: min(320px, 72vw);
+  aspect-ratio: 4 / 5;            /* portrait crop from the source photo */
+  object-fit: cover;
+  object-position: 68% 30%;       /* keep the face in frame (it sits right of center) */
+  border-radius: 22px;
 }
 
 /* ---------- Career timeline (index.html) ---------- */
