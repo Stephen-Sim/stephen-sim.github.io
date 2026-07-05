@@ -199,3 +199,96 @@ a:hover { color: var(--text-bright); }
   transition: color var(--transition);
 }
 .footer-links a:hover { color: var(--text-bright); }
+
+/* ---------- Hero (index.html) ---------- */
+.hero { position: relative; padding: 10rem 0 6rem; overflow: hidden; }
+.hero-glow { /* soft indigo radial glow behind the hero content */
+  position: absolute;
+  top: -20%; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.18), transparent 65%);
+  pointer-events: none;
+}
+.hero-eyebrow { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-2); letter-spacing: 0.1em; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin: 0.5rem 0 1rem; }
+.hero-tagline { font-size: 1.15rem; max-width: 560px; }
+.hero-photo {
+  width: 100%; max-width: 320px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Career timeline (index.html) ---------- */
+.timeline { position: relative; max-width: 720px; margin: 0 auto; padding-left: 2rem; }
+.timeline::before { /* the vertical connecting line */
+  content: '';
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+  opacity: 0.35;
+}
+.timeline-item { position: relative; padding: 0 0 2.25rem 1.5rem; cursor: pointer; }
+.timeline-dot {
+  position: absolute;
+  left: -2rem; top: 6px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.timeline-item:hover .timeline-dot,
+.timeline-item.open .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.6);
+}
+.timeline-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); }
+.timeline-item h3 { font-size: 1.1rem; margin: 0.15rem 0; transition: color var(--transition); }
+.timeline-item:hover h3 { color: var(--accent-2); }
+.timeline-detail { /* hidden one-liner, revealed on hover or tap */
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.92rem;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+.timeline-item:hover .timeline-detail,
+.timeline-item.open .timeline-detail { max-height: 90px; opacity: 1; }
+
+/* ---------- Skills grid (index.html) ---------- */
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  height: 100%;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.skill-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+.skill-card i { font-size: 1.6rem; color: var(--accent-2); margin-bottom: 0.6rem; display: block; }
+.skill-card span { color: var(--text-bright); font-size: 0.9rem; font-weight: 500; }
+
+/* ---------- Contact CTA strip (index.html) ---------- */
+.cta-strip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-strip::before { /* thin gradient line along the top edge */
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient);
+}
