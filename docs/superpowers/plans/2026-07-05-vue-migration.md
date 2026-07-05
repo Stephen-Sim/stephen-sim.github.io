@@ -6,12 +6,19 @@
 
 **Architecture:** Vue 3 (composition API, `<script setup>`), vue-router with `createWebHistory('/ssim-profile/')`, @unhead/vue for per-route meta, AOS from npm. Shared NavBar/SiteFooter components replace the duplicated markup. Existing `css/style.css` becomes `src/assets/main.css` nearly unchanged. Static files (images, resume, favicon, robots, sitemap) move to `public/`. SPA deep links handled by copying `index.html` to `404.html` at build time.
 
-**Tech Stack:** vue ^3.5, vue-router ^4, @unhead/vue ^2, aos ^2.3.4, vite ^7, @vitejs/plugin-vue.
+**Tech Stack:** TypeScript, vue ^3.5, vue-router ^4, @unhead/vue ^2, aos ^2.3.4, vite ^7, @vitejs/plugin-vue, vue-tsc.
 
 ## Global Constraints
 
-- Content and visual design must NOT change: same copy, same CSS custom properties, classes, and layout. This is a restructure, not a redesign.
-- Base path `/ssim-profile/` everywhere (vite `base`, router history base, canonical URLs stay `https://stephen-sim.github.io/ssim-profile/...`).
+- TypeScript throughout: `<script setup lang="ts">`, main.ts/router index.ts/vite.config.ts, `vue-tsc --noEmit` must pass and runs as part of `npm run build`.
+- Content and visual design must NOT change EXCEPT the approved copy edits listed below. Same CSS custom properties, classes, and layout.
+- Base path `/` everywhere — the site is a GitHub USER site: repo `Stephen-Sim/stephen-sim.github.io` (user renames the current `portfolio` repo), served at `https://stephen-sim.github.io/`. Vite `base: '/'`, router `createWebHistory('/')`, canonical/OG URLs, sitemap and robots all use `https://stephen-sim.github.io/...`.
+
+## Approved copy/content changes (apply in V2)
+
+- Hero tagline (humble rewrite, user-mandated): `Backend engineer at <strong class="text-light">Ant International</strong>, working on the payment systems that serve e-commerce across Southeast Asia. Represented Malaysia at <strong class="text-light">WorldSkills Lyon 2024</strong>.`
+- Home meta description: "Backend engineer at Ant International working on payment systems. Malaysia WorldSkills Lyon 2024 competitor. Java, Spring Boot, distributed systems."
+- Hero photo: the user's selfie `images/profile.jpeg` (moved to `public/` with the rest) becomes `public/assets/profile.jpg` (overwrite), with `.hero-photo` `object-position: 68% 30%` (face sits right of center). The ASEAN competing shot stays in the WorldSkills gallery.
 - Bootstrap stays CDN (grid + collapse only) in `index.html` head — do NOT npm-install Bootstrap. Font Awesome + Google Fonts stay CDN. AOS moves to npm (CSS imported in main.js).
 - Keep code beginner-friendly and commented.
 - Verification: `npm run build` must succeed; `npm run preview` pages must render identically to the old static pages; router navigation works; AOS animates after route changes.
