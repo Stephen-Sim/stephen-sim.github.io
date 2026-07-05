@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stephen-sim.github.io/ssim-profile/sitemap.xml

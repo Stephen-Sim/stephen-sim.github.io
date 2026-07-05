@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" rx="16" fill="#12121a"/>
+  <rect x="1" y="1" width="798" height="448" rx="16" fill="none" stroke="#232334" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="400" y="220" font-family="Arial" font-size="22" fill="#4b5563" text-anchor="middle">Image placeholder</text>
+  <text x="400" y="250" font-family="Arial" font-size="14" fill="#374151" text-anchor="middle">Drop your image into /images and update the src</text>
+</svg>
