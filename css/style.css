@@ -321,3 +321,16 @@ a:hover { color: var(--text-bright); }
   font-weight: 600;
   color: var(--text-bright);
 }
+
+/* ---------- Medals (worldskills.html) ---------- */
+.medal-card { text-align: center; }
+.medal-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+}
+.medal-icon.bronze { background: rgba(205, 127, 50, 0.12); color: #cd7f32; border: 1px solid rgba(205, 127, 50, 0.4); }
+.medal-icon.excellence { background: rgba(167, 139, 250, 0.12); color: var(--accent-2); border: 1px solid rgba(167, 139, 250, 0.4); }
+.medal-card .mono-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); }
