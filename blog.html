@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Articles — Stephen Sim</title>
+  <meta name="description" content="Writing on payment gateway design, RabbitMQ, Redis, Java, Spring Boot, distributed systems, microservices, and AI.">
+  <meta name="author" content="Stephen Sim Shan Siong">
+  <link rel="canonical" href="https://stephen-sim.github.io/ssim-profile/blog.html">
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Technical Articles — Stephen Sim">
+  <meta property="og:description" content="Writing on payment gateway design, RabbitMQ, Redis, Java, Spring Boot, distributed systems, microservices, and AI.">
+  <meta property="og:url" content="https://stephen-sim.github.io/ssim-profile/blog.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Technical Articles — Stephen Sim">
+  <meta name="twitter:description" content="Writing on payment gateway design, RabbitMQ, Redis, Java, Spring Boot, distributed systems, microservices, and AI.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 (grid + navbar collapse only) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- AOS scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Custom design system -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- ============ NAVBAR (shared across all pages — edit in every file) ============ -->
+<nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav">
+  <div class="container">
+    <a class="navbar-brand brand" href="index.html">stephen<span class="brand-accent">.sim</span></a>
+    <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="worldskills.html">WorldSkills</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a class="btn-accent btn-sm-nav" href="assets/resume.pdf" download>
+            <i class="fa-solid fa-download me-2"></i>Resume
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<!-- Blog: articles are still being written, so each card previews the planned title/teaser -->
+<section class="section page-top" id="articles">
+  <div class="container">
+    <p class="section-eyebrow" data-aos="fade-up">Writing</p>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Technical articles</h2>
+    <p class="section-lead" data-aos="fade-up" data-aos-delay="200">Notes from building payment systems and distributed backends. Articles are in the works — titles below are what's coming.</p>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="glass-card article-card">
+          <div><span class="tag">Payments</span><span class="tag">Architecture</span></div>
+          <h3>Designing a Payment Gateway: Lessons from Building DirectPay</h3>
+          <p>What actually happens between "Pay Now" and "Payment Successful" — states, reconciliation, and the failure modes nobody tells you about.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card article-card">
+          <div><span class="tag">RabbitMQ</span><span class="tag">Messaging</span></div>
+          <h3>RabbitMQ in Payment Systems: Reliable Async Processing</h3>
+          <p>Why message queues are the backbone of money movement, and the patterns that keep a payout from being lost or sent twice.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card article-card">
+          <div><span class="tag">Redis</span><span class="tag">Performance</span></div>
+          <h3>Redis Beyond Caching: Patterns for Payment Workloads</h3>
+          <p>Distributed locks, rate limiting, and hot-path state — where Redis shines in a payment platform and where it bites.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="glass-card article-card">
+          <div><span class="tag">Java</span></div>
+          <h3>Modern Java for Backend Engineers</h3>
+          <p>The Java I actually write day to day — records, streams, virtual threads, and the parts of the language worth mastering in 2026.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card article-card">
+          <div><span class="tag">Spring Boot</span><span class="tag">Production</span></div>
+          <h3>Spring Boot in Production: What I've Learned</h3>
+          <p>Configuration, observability, and graceful degradation — hard-won lessons from running Spring Boot services that can't go down.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card article-card">
+          <div><span class="tag">Distributed Systems</span></div>
+          <h3>Distributed Systems Fundamentals for Payment Engineers</h3>
+          <p>Consistency, idempotency, and exactly-once myths — the concepts that matter most when the data is money.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="glass-card article-card">
+          <div><span class="tag">Microservices</span><span class="tag">Architecture</span></div>
+          <h3>Microservices Boundaries: Splitting a Payment Platform</h3>
+          <p>How to draw service boundaries that survive growth — and the coupling traps that turn microservices into a distributed monolith.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card article-card">
+          <div><span class="tag">AI</span><span class="tag">Backend</span></div>
+          <h3>AI in the Backend: Building an Internal Translation Extension</h3>
+          <p>What it takes to put AI models behind a production API — routing, streaming, and serving 1,000+ daily users.</p>
+          <span class="coming-soon"><i class="fa-regular fa-clock me-2"></i>Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER (shared across all pages — edit in every file) ============ -->
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+    <p class="footer-copy mb-0">© <span id="year">2026</span> Stephen Sim. Built with plain HTML, CSS &amp; JavaScript.</p>
+    <div class="footer-links">
+      <a href="https://github.com/Stephen-Sim" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/stephen-sim-343775212" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
