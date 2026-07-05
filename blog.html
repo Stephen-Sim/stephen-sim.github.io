@@ -27,6 +27,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
   <!-- AOS scroll animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- If JavaScript is off, AOS never runs — this makes animated elements visible anyway -->
+  <noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
   <!-- Custom design system -->
   <link href="css/style.css" rel="stylesheet">
 </head>
@@ -62,7 +64,7 @@
 <section class="section page-top" id="articles">
   <div class="container">
     <p class="section-eyebrow" data-aos="fade-up">Writing</p>
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Technical articles</h2>
+    <h1 class="section-title" data-aos="fade-up" data-aos-delay="100">Technical articles</h1>
     <p class="section-lead" data-aos="fade-up" data-aos-delay="200">Notes from building payment systems and distributed backends. Articles are in the works — titles below are what's coming.</p>
 
     <div class="row g-4">

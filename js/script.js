@@ -23,9 +23,10 @@ window.addEventListener('scroll', updateNav, { passive: true });
 updateNav(); // run once on load (page may load mid-scroll)
 
 // 3) Highlight the nav link that matches the current page
-const current = location.pathname.split('/').pop() || 'index.html';
+// Works for both "about.html" and extensionless "/about" URLs
+const current = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
 document.querySelectorAll('.site-nav .nav-link').forEach(function (link) {
-  if (link.getAttribute('href') === current) link.classList.add('active');
+  if (link.getAttribute('href').replace(/\.html$/, '') === current) link.classList.add('active');
 });
 
 // 4) Footer: keep the copyright year current

@@ -98,7 +98,7 @@ Most of the photography on the site is real:
 What's still a placeholder (`images/placeholder-wide.svg`), and should be
 swapped for a real image before the site is considered finished:
 
-- `about.html` — 2 architecture diagrams (Payment Sandbox Optimization,
+- `about.html` — 4 architecture diagrams (Payment Sandbox Optimization,
   Real-Time Refund Withdrawals, Payment Account SaaS APIs, AI Translation
   Extension case studies — 4 images across those case study blocks all use
   the same placeholder)
@@ -109,9 +109,16 @@ To replace a placeholder: drop the real image into `images/`, then update the
 matching `<img src="images/placeholder-wide.svg" ...>` tag to point at the new
 filename and write a real `alt` description.
 
-There is also one unused photo already sitting in `images/`:
-`images/dbfiesta-utem-first-place.jpg`. It isn't referenced from any page —
-add it to `about.html` (or wherever fits) if you want it included.
+There are also two unused photos already sitting in `images/`:
+`images/dbfiesta-utem-first-place.jpg` and `images/worldskills-asia-group.jpg`
+(an international group photo from Abu Dhabi). Neither is referenced from any
+page — add them to `about.html`/`worldskills.html` (or wherever fits) if you
+want them included.
+
+There is also `assets/profile-placeholder.svg`, which is kept in the repo as
+an unreferenced fallback avatar (the original placeholder used before
+`assets/profile.jpg` was added) — it isn't linked from any page but is left
+in place in case a placeholder avatar is needed again.
 
 ## Before you publish
 
@@ -163,3 +170,10 @@ All internal links between pages use relative paths (`about.html`,
 `images/...`, `css/style.css`, etc.), so they work under any repo name or
 subpath without changes — only the absolute canonical/OG/sitemap URLs above
 need updating.
+
+Note that because this is a GitHub *project* page (served from
+`/ssim-profile/` rather than the domain root), `robots.txt` at
+`/ssim-profile/robots.txt` is not read by crawlers — `robots.txt` is only
+honored when it sits at the actual domain root (`/robots.txt`) — so submit
+`sitemap.xml` directly in Google Search Console instead of relying on the
+`Sitemap:` line in `robots.txt` to be discovered.
