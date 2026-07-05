@@ -114,11 +114,6 @@ in place in case a placeholder avatar is needed again.
 
 ## Before you publish
 
-- **Resolve the draft tech-stack notes.** Both `projects.html` case studies
-  (DirectPay and PRiM) carry a visible `(draft — verify/edit the exact
-  stack)` note right under their "Technologies" tag list. Confirm the actual
-  stack for each project, update the `<span class="tag">` list accordingly,
-  and delete the draft note.
 - **Consider a dedicated Open Graph image.** Right now there's no
   `og:image`/`twitter:image` tag on any page, so social shares will show no
   preview image (or a platform-default fallback). If you want a polished link
