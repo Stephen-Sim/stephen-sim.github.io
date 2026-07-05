@@ -91,7 +91,7 @@ Most of the photography on the site is real:
 
 - Hero photo (`index.html`) — `assets/profile.jpg`
 - About page team photo — `images/ant-international-team.jpg`
-- WorldSkills page — 10 real competition photos (`images/worldskills-*.jpg`)
+- WorldSkills page — 13 real competition photos (`images/worldskills-*.jpg`)
 - Projects page screenshots — `images/directpay-screenshot.png` and
   `images/prim-screenshot.png` (real product screenshots for DirectPay and
   PRiM, replacing the former placeholder images)
