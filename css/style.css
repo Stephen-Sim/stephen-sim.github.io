@@ -292,3 +292,32 @@ a:hover { color: var(--text-bright); }
   height: 2px;
   background: var(--gradient);
 }
+
+/* Pages without a hero need clearance under the fixed navbar */
+.page-top { padding-top: 9rem; }
+
+/* ---------- Case studies (about.html) & project deep-dives (projects.html) ---------- */
+.case-study {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+  margin-bottom: 2rem;
+  transition: border-color var(--transition);
+}
+.case-study:hover { border-color: var(--border-hover); }
+.case-label { /* "Problem", "Solution", ... subsection labels */
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin: 1.5rem 0 0.4rem;
+}
+.case-study h3 { font-size: 1.35rem; }
+.metric-highlight { /* big mono metric, e.g. "~80% → ~100%" */
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
