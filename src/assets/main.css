@@ -389,7 +389,6 @@ h1.section-title { font-size: clamp(3.2rem, 7vw, 6.6rem); }
 
 /* WorldSkills */
 .medal-card { position: relative; min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; text-align: left; overflow: hidden; }
-.medal-card::after { content: '03'; position: absolute; top: -2rem; right: -.4rem; color: rgba(255,255,255,.035); font: 700 10rem var(--font-display); }
 .medal-icon { display: grid; place-items: center; width: 52px; height: 52px; margin: 0 0 2.5rem; border-radius: 50%; font-size: 1.15rem; }
 .medal-icon.bronze { color: #ffae79; background: rgba(255,155,92,.1); border: 1px solid rgba(255,155,92,.35); }
 .medal-icon.excellence { color: var(--accent); background: rgba(200,255,101,.08); border: 1px solid rgba(200,255,101,.3); }
