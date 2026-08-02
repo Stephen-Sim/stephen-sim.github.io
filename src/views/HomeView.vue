@@ -1,18 +1,10 @@
-<!-- Home page: hero intro, about teaser, career timeline, skills grid, and
-     a closing contact CTA. Content copied verbatim from the old
-     .superpowers/sdd/old-index.html, with two intentional changes:
-       1) the hero tagline was rewritten to be more humble (see plan doc)
-       2) the timeline's click-to-open behavior, previously done with
-          plain DOM manipulation in js/script.js, is now a small `ref`
-          driven by a v-for loop over a typed array of milestones. -->
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useHead } from '@unhead/vue';
 
-// ---- Per-route <head> tags (title, description, Open Graph, Twitter, canonical) ----
 const title = 'Stephen Sim — Backend Engineer';
 const description =
-  'Backend engineer at Ant International working on payment systems. Malaysia WorldSkills Lyon 2024 competitor. Java, Spring Boot, distributed systems.';
+  'Backend engineer at Ant International building reliable payment systems. Malaysia WorldSkills Lyon 2024 competitor.';
 const url = 'https://stephen-sim.github.io/';
 
 useHead({
@@ -30,63 +22,61 @@ useHead({
   link: [{ rel: 'canonical', href: url }],
 });
 
-// ---- Career timeline data + click-to-open toggle ----
-// Each item mirrors one .timeline-item from the old static page. Clicking
-// (or tapping) an item toggles it open; clicking the same item again
-// closes it. Only one index is tracked, so opening a new item closes
-// whichever one was open before — matching the old script.js behavior.
 interface TimelineItem {
   date: string;
   title: string;
   detail: string;
+  kind: string;
 }
 
 const timelineItems: TimelineItem[] = [
   {
     date: '2020 — 2023',
-    title: 'UTeM — Diploma in Information Technology',
-    detail:
-      "Where it all started — foundations in programming, databases, and software development. CGPA 3.94/4.00 — Vice Chancellor's Award recipient.",
+    title: 'UTeM · Diploma in IT',
+    detail: "Built strong foundations in programming and databases. CGPA 3.94/4.00 and Vice Chancellor's Award.",
+    kind: 'Learn',
   },
   {
     date: '2021 — 2023',
-    title: 'PRiM — People Relationship Information Management',
-    detail:
-      "Joined my lecturer's project, building donation management and school-fee payment systems serving 200+ organizations.",
-  },
-  {
-    date: '2023 — 2025',
-    title: 'UTeM — Bachelor of Computer Science (Software Development)',
-    detail: "CGPA 3.93/4.00 — Vice Chancellor's Award recipient.",
+    title: 'PRiM · First production systems',
+    detail: 'Built donation and school-fee workflows serving more than 200 Malaysian organizations.',
+    kind: 'Build',
   },
   {
     date: '2023 — 2024',
-    title: 'DirectPay Payment Gateway',
-    detail: 'Developed a 0-to-1 FPX-integrated payment middleware platform.',
+    title: 'DirectPay · Payment gateway',
+    detail: 'Developed a 0-to-1 FPX-integrated payment middleware platform and its reconciliation workflows.',
+    kind: 'Ship',
   },
   {
-    date: '2023',
-    title: 'WorldSkills ASEAN, Singapore',
-    detail: 'Bronze Medal — IT Software Solutions for Business.',
-  },
-  {
-    date: '2023',
-    title: 'WorldSkills Asia, Abu Dhabi',
-    detail: "Bronze Medal — representing Malaysia against the region's best.",
-  },
-  {
-    date: '2024',
-    title: 'WorldSkills Competition, Lyon',
-    detail: 'The final stage — Medallion for Excellence at the 47th WorldSkills Competition.',
+    date: '2023 — 2024',
+    title: 'WorldSkills · Team Malaysia',
+    detail: 'Two bronze medals, then a Medallion for Excellence at the 47th WorldSkills Competition in Lyon.',
+    kind: 'Compete',
   },
   {
     date: '2025 — Now',
-    title: 'Ant International',
-    detail: 'Java Backend Engineer on the payment account team — sandbox, refunds, and fund transfers.',
+    title: 'Ant International · Antom',
+    detail: 'Java Backend Engineer working on payment accounts, sandbox reliability, refunds, and fund transfers.',
+    kind: 'Scale',
   },
 ];
 
-const openItem = ref<number | null>(null);
+const skills = [
+  'Java',
+  'Spring Boot',
+  'Redis',
+  'RabbitMQ',
+  'MySQL',
+  'Docker',
+  'OpenTelemetry',
+  'Prometheus',
+  '.NET',
+  'Laravel',
+  'Alibaba Cloud',
+];
+
+const openItem = ref<number | null>(4);
 
 function toggleItem(i: number) {
   openItem.value = openItem.value === i ? null : i;
@@ -95,133 +85,175 @@ function toggleItem(i: number) {
 
 <template>
   <main id="main">
-    <!-- Hero: intro, tagline, and primary calls to action -->
     <header class="hero">
-      <div class="hero-glow"></div>
-      <div class="container">
-        <div class="row align-items-center g-5">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-container">
+        <div class="hero-status" data-aos="fade-down">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Backend engineer · Kuala Lumpur</span>
+          <span class="hero-status-rule"></span>
+          <span class="mono">MY / 2026</span>
+        </div>
+
+        <div class="row align-items-end g-5 hero-grid">
           <div class="col-lg-7" data-aos="fade-up">
-            <p class="hero-eyebrow">Backend Engineer · Kuala Lumpur, Malaysia</p>
-            <h1>Stephen <span class="gradient-text">Sim</span></h1>
+            <p class="hero-kicker mono">Hello, I'm Stephen Sim.</p>
+            <h1>
+              I build payment systems
+              <span>that stay calm under pressure.</span>
+            </h1>
             <p class="hero-tagline">
-              Backend engineer at <strong>Ant International</strong>, part of the <strong>Antom</strong> team —
-              providing merchants with payment service integration. Represented Malaysia at <strong>WorldSkills Lyon 2024</strong>.
+              Backend engineer at <strong>Ant International</strong>, building reliable payment experiences for
+              regional merchants. I also represented Malaysia at <strong>WorldSkills Lyon 2024</strong>.
             </p>
-            <div class="d-flex flex-wrap gap-3 mt-4">
-              <a class="btn-ghost" href="https://github.com/Stephen-Sim" target="_blank" rel="noopener"><i class="fa-brands fa-github me-2"></i>GitHub</a>
-              <a class="btn-ghost" href="https://www.linkedin.com/in/stephen-sim-343775212" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in me-2"></i>LinkedIn</a>
+            <div class="hero-actions">
+              <RouterLink class="btn-accent" to="/projects">Explore my work <i class="fa-solid fa-arrow-right"></i></RouterLink>
+              <a class="text-link" href="mailto:simshansiong2002@gmail.com">simshansiong2002@gmail.com</a>
             </div>
           </div>
-          <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="150">
+
+          <div class="col-lg-5" data-aos="fade-left" data-aos-delay="120">
             <div class="hero-photo-frame">
-              <img class="hero-photo" src="/assets/profile.jpg" alt="Stephen Sim competing at WorldSkills ASEAN Singapore 2023">
+              <div class="photo-index mono"><span>FIELD NOTE</span><strong>01</strong></div>
+              <img class="hero-photo" src="/assets/profile.jpg" alt="Stephen Sim representing Malaysia at a WorldSkills event">
+              <div class="photo-caption">
+                <span>Abu Dhabi, UAE</span>
+                <span>WorldSkills Asia '23</span>
+              </div>
               <div class="hero-badge">
-                <i class="fa-solid fa-award"></i>
-                <span>Medallion for Excellence<small>47th WorldSkills — Lyon 2024</small></span>
+                <i class="fa-solid fa-award" aria-hidden="true"></i>
+                <span><strong>Medallion for Excellence</strong><small>WorldSkills Lyon · 2024</small></span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="proof-strip" data-aos="fade-up" data-aos-delay="180">
+          <div class="proof-item">
+            <span class="proof-number">200<span>+</span></span>
+            <span class="proof-copy"><strong>Organizations served</strong><small>Through the PRiM platform</small></span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">03</span>
+            <span class="proof-copy"><strong>WorldSkills stages</strong><small>Singapore · Abu Dhabi · Lyon</small></span>
+          </div>
+          <div class="proof-item proof-role">
+            <span class="proof-current"><span class="status-dot" aria-hidden="true"></span>Current chapter</span>
+            <strong>Ant International</strong>
+            <small>Backend Engineer · Antom</small>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- About teaser: short summary linking through to the full About page -->
-    <section class="section" id="about-teaser">
+    <section class="section work-section" id="selected-work">
       <div class="container">
-        <p class="section-eyebrow" data-aos="fade-up">About</p>
-        <h2 class="section-title" data-aos="fade-up">Engineering, end to end</h2>
-        <p class="section-lead" data-aos="fade-up" data-aos-delay="100">
-          From building donation platforms for 200+ Malaysian organizations as a student, to competing for Malaysia on the WorldSkills world stage, to optimizing payment systems used by millions of e-commerce customers — I care about one thing: software that works, reliably, at scale.
-        </p>
-        <RouterLink class="btn-ghost" to="/about" data-aos="fade-up" data-aos-delay="150">Read my story <i class="fa-solid fa-arrow-right ms-2"></i></RouterLink>
-      </div>
-    </section>
+        <div class="section-heading" data-aos="fade-up">
+          <div>
+            <p class="section-eyebrow">Selected signals</p>
+            <h2 class="section-title">Work with a real-world pulse.</h2>
+          </div>
+          <p class="section-note">Payments, public-impact products, and software built against the clock.</p>
+        </div>
 
-    <!-- Career timeline: milestones from Diploma through Ant International -->
-    <section class="section" id="timeline">
-      <div class="container">
-        <p class="section-eyebrow" data-aos="fade-up">Career</p>
-        <h2 class="section-title" data-aos="fade-up">The journey so far</h2>
-        <p class="section-lead" data-aos="fade-up" data-aos-delay="100">Hover or tap each milestone.</p>
-        <div class="timeline">
-          <!-- data-aos lives on the outer wrapper, NOT the element whose class
-               Vue toggles: AOS adds its own classes straight to the DOM, and a
-               Vue class-binding update would wipe them (hiding the item). -->
-          <div v-for="(item, i) in timelineItems" :key="item.title" data-aos="fade-up">
-            <div
-              class="timeline-item"
-              :class="{ open: openItem === i }"
-              @click="toggleItem(i)"
-            >
-              <span class="timeline-dot"></span>
-              <p class="timeline-date">{{ item.date }}</p>
-              <h3>{{ item.title }}</h3>
-              <p class="timeline-detail">{{ item.detail }}</p>
+        <div class="work-grid">
+          <RouterLink class="work-card work-card-featured" to="/about" data-aos="fade-up">
+            <div class="work-card-top"><span class="mono">01 / PAYMENT INFRA</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            <div class="work-card-content">
+              <p>Ant International</p>
+              <h3>Making money movement boring — in the best possible way.</h3>
+              <span>Sandbox reliability · Real-time refunds · Payment account APIs</span>
             </div>
-          </div>
+            <div class="system-orbit" aria-hidden="true">
+              <span class="orbit-node node-a">API</span>
+              <span class="orbit-node node-b">MQ</span>
+              <span class="orbit-node node-c">DB</span>
+              <span class="orbit-core">PAY</span>
+            </div>
+          </RouterLink>
+
+          <RouterLink class="work-card work-card-photo" to="/worldskills" data-aos="fade-up" data-aos-delay="80">
+            <img src="/images/worldskills-lyon-opening.jpg" alt="Stephen Sim carrying the Malaysia sign at WorldSkills Lyon 2024">
+            <span class="photo-shade" aria-hidden="true"></span>
+            <div class="work-card-top"><span class="mono">02 / WORLDSKILLS</span><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="work-card-content">
+              <p>Team Malaysia</p>
+              <h3>Three stages. Three medals. One standard.</h3>
+            </div>
+          </RouterLink>
+
+          <RouterLink class="work-card work-card-project" to="/projects" data-aos="fade-up" data-aos-delay="120">
+            <div class="work-card-top"><span class="mono">03 / 0 → 1 BUILD</span><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="project-mark">DP<span>.</span></div>
+            <div class="work-card-content">
+              <p>DirectPay</p>
+              <h3>FPX payment middleware built from the first transaction.</h3>
+              <span>.NET · MSSQL · Reconciliation</span>
+            </div>
+          </RouterLink>
+
+          <RouterLink class="work-card work-card-story" to="/about" data-aos="fade-up" data-aos-delay="160">
+            <div class="work-card-top"><span class="mono">04 / THE THROUGH-LINE</span><i class="fa-solid fa-arrow-right"></i></div>
+            <blockquote>“Reliability isn't a feature. It's the foundation.”</blockquote>
+            <span class="story-link">Read the engineering story</span>
+          </RouterLink>
         </div>
       </div>
     </section>
 
-    <!-- Skills grid: core languages, frameworks, and tools -->
-    <section class="section" id="skills">
+    <section class="section journey-section" id="timeline">
       <div class="container">
-        <p class="section-eyebrow" data-aos="fade-up">Toolbox</p>
-        <h2 class="section-title" data-aos="fade-up">Skills &amp; technologies</h2>
-        <div class="row g-3">
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-            <div class="skill-card"><i class="fa-brands fa-java"></i><span>Java</span></div>
+        <div class="section-heading" data-aos="fade-up">
+          <div>
+            <p class="section-eyebrow">The route here</p>
+            <h2 class="section-title">Learn. Build. Compete. Scale.</h2>
           </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="50">
-            <div class="skill-card"><i class="fa-solid fa-leaf"></i><span>Spring Boot</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="skill-card"><i class="fa-solid fa-bolt"></i><span>Redis</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-            <div class="skill-card"><i class="fa-solid fa-envelopes-bulk"></i><span>RabbitMQ</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-            <div class="skill-card"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="50">
-            <div class="skill-card"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="skill-card"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-            <div class="skill-card"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-            <div class="skill-card"><i class="fa-solid fa-code"></i><span>C#</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="50">
-            <div class="skill-card"><i class="fa-brands fa-microsoft"></i><span>.NET</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="skill-card"><i class="fa-brands fa-laravel"></i><span>Laravel</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-            <div class="skill-card"><i class="fa-solid fa-fire"></i><span>Prometheus</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-            <div class="skill-card"><i class="fa-solid fa-wave-square"></i><span>OpenTelemetry</span></div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="50">
-            <div class="skill-card"><i class="fa-solid fa-cloud"></i><span>Alibaba Cloud</span></div>
+          <p class="section-note">Tap a chapter to open the field note.</p>
+        </div>
+
+        <div class="timeline" data-aos="fade-up">
+          <button
+            v-for="(item, i) in timelineItems"
+            :key="item.title"
+            class="timeline-item"
+            :class="{ open: openItem === i }"
+            type="button"
+            :aria-expanded="openItem === i"
+            @click="toggleItem(i)"
+          >
+            <span class="timeline-index mono">0{{ i + 1 }}</span>
+            <span class="timeline-date">{{ item.date }}</span>
+            <span class="timeline-copy">
+              <strong>{{ item.title }}</strong>
+              <span class="timeline-detail">{{ item.detail }}</span>
+            </span>
+            <span class="timeline-kind mono">{{ item.kind }}</span>
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section toolbox-section" id="skills">
+      <div class="container">
+        <p class="section-eyebrow" data-aos="fade-up">Working set</p>
+        <div class="toolbox-layout">
+          <h2 class="section-title" data-aos="fade-up">Tools change.<br><span class="gradient-text">Engineering judgment compounds.</span></h2>
+          <div class="skill-cloud" data-aos="fade-up" data-aos-delay="80">
+            <span v-for="(skill, i) in skills" :key="skill" class="skill-chip"><span class="mono">{{ String(i + 1).padStart(2, '0') }}</span>{{ skill }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA: closing strip prompting visitors to get in touch -->
     <section class="section pt-0" id="cta">
       <div class="container">
         <div class="cta-strip" data-aos="fade-up">
-          <h2 class="section-title mb-2">Let's build something reliable.</h2>
-          <p class="mb-4">Open to interesting conversations about payments, distributed systems, and backend engineering.</p>
-          <RouterLink class="btn-accent" to="/contact">Get in touch <i class="fa-solid fa-arrow-right ms-2"></i></RouterLink>
+          <p class="section-eyebrow">Open channel</p>
+          <h2>Have a hard system to make feel simple?</h2>
+          <p>Let's talk payments, distributed systems, or the next meaningful build.</p>
+          <RouterLink class="btn-accent btn-light" to="/contact">Start a conversation <i class="fa-solid fa-arrow-right"></i></RouterLink>
+          <span class="cta-code mono" aria-hidden="true">KL · 03.1390° N<br>101.6869° E</span>
         </div>
       </div>
     </section>
