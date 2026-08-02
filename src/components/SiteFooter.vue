@@ -9,11 +9,20 @@ const year = computed(() => new Date().getFullYear());
 
 <template>
   <footer class="site-footer">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <p class="footer-copy mb-0">© <span id="year">{{ year }}</span> Stephen Sim.</p>
-      <div class="footer-links">
-        <a href="https://github.com/Stephen-Sim" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/stephen-sim-343775212" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <p class="footer-kicker mono">STEPHEN SIM / PORTFOLIO</p>
+          <p class="footer-statement">Building reliable systems<br>from Kuala Lumpur.</p>
+        </div>
+        <a class="footer-email" href="mailto:simshansiong2002@gmail.com">simshansiong2002@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy mb-0">© {{ year }} Stephen Sim. Built with curiosity.</p>
+        <div class="footer-links">
+          <a href="https://github.com/Stephen-Sim" target="_blank" rel="noopener">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="https://www.linkedin.com/in/stephen-sim-343775212" target="_blank" rel="noopener">LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
       </div>
     </div>
   </footer>

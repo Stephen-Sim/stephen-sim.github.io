@@ -57,7 +57,11 @@ watch(
 <template>
   <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav" ref="navEl">
     <div class="container">
-      <RouterLink class="navbar-brand brand" to="/">stephen<span class="brand-accent">.sim</span></RouterLink>
+      <RouterLink class="navbar-brand brand" to="/">
+        <span class="brand-wordmark">stephen<span>.sim</span></span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-role">Backend engineer</span>
+      </RouterLink>
       <button
         class="navbar-toggler nav-toggle"
         type="button"
@@ -72,21 +76,19 @@ watch(
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item">
-            <!-- exact-active-class means "/" is only highlighted when the
-                 route really is "/", not on every other page too. -->
-            <RouterLink class="nav-link" to="/" exact-active-class="active">Home</RouterLink>
+            <RouterLink class="nav-link" to="/" exact-active-class="active"><span>01</span>Home</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/about" active-class="active">About</RouterLink>
+            <RouterLink class="nav-link" to="/about" active-class="active"><span>02</span>About</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/projects" active-class="active">Projects</RouterLink>
+            <RouterLink class="nav-link" to="/projects" active-class="active"><span>03</span>Projects</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/worldskills" active-class="active">WorldSkills</RouterLink>
+            <RouterLink class="nav-link" to="/worldskills" active-class="active"><span>04</span>WorldSkills</RouterLink>
           </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/contact" active-class="active">Contact</RouterLink>
+          <li class="nav-item ms-lg-2">
+            <RouterLink class="nav-contact" to="/contact" active-class="active">Let's talk <i class="fa-solid fa-arrow-right"></i></RouterLink>
           </li>
         </ul>
       </div>
