@@ -1,10 +1,10 @@
-<!-- Projects page: deep dives into DirectPay and PRiM. Content copied
-     verbatim from the old projects.html. -->
+<!-- Project case studies, from desktop AI to payment platforms. -->
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
 
 const title = 'Projects — Stephen Sim';
-const description = 'Deep dives into DirectPay (FPX payment gateway) and PRiM (donation management for 200+ organizations).';
+const description =
+  'Explore dant, a Windows AI companion built with Go and Tauri, alongside DirectPay payment middleware and the PRiM donation management platform.';
 const url = 'https://stephen-sim.github.io/projects';
 
 useHead({
@@ -25,12 +25,71 @@ useHead({
 
 <template>
   <main id="main">
-    <!-- Projects: deep dives into two end-to-end products -->
+    <!-- Projects: products built from interface to execution. -->
     <section class="section page-top" id="projects">
       <div class="container">
         <p class="section-eyebrow" data-aos="fade-up">Projects</p>
         <h1 class="section-title" data-aos="fade-up" data-aos-delay="100">Things I've built</h1>
-        <p class="section-lead" data-aos="fade-up" data-aos-delay="200">Two products, built end to end — both moving real money for real users.</p>
+        <p class="section-lead" data-aos="fade-up" data-aos-delay="200">Payment platforms and a desktop companion, built from interface to execution.</p>
+
+        <article class="case-study case-study-dant" data-aos="fade-up" aria-labelledby="dant-title">
+          <div class="case-study-heading">
+            <div>
+              <h3 id="dant-title">dant — AI desktop companion</h3>
+              <p class="timeline-date">Personal project · Open source · Windows + Ubuntu</p>
+            </div>
+            <img
+              class="case-study-logo"
+              src="/images/dant-logo.svg"
+              alt=""
+              width="80"
+              height="80"
+              aria-hidden="true"
+            >
+          </div>
+          <p class="case-label">Overview</p>
+          <p>
+            A Windows companion for AI-assisted work, bringing chat, voice, files, saved memory,
+            reusable skills, scheduled tasks, and Telegram together. Its Ubuntu work computer
+            lets you watch progress and take control when needed.
+          </p>
+          <p class="case-label">My Responsibilities</p>
+          <p>
+            Built the desktop experience and execution core, including task continuity,
+            human-control handoff, message synchronization, and VM lifecycle management.
+          </p>
+          <p class="case-label">Architecture</p>
+          <p>
+            A Rust/Tauri desktop host and TypeScript interface connect to a Go Windows Controller.
+            An authenticated connection links it to a Go Worker in Ubuntu, which owns task
+            execution and persistent state.
+          </p>
+          <p class="case-label">Technologies</p>
+          <div class="mt-2">
+            <span class="tag">Go</span><span class="tag">Rust / Tauri</span><span class="tag">TypeScript</span>
+            <span class="tag">SQLite</span><span class="tag">Ubuntu VM</span><span class="tag">Telegram</span>
+          </div>
+          <p class="case-label">Challenges</p>
+          <p>
+            Keeping task identity and uncertain outcomes intact across pauses, reconnects,
+            and restarts, while allowing conversation during human control.
+          </p>
+          <p class="case-label">Lessons Learned</p>
+          <p>Reliable agent software needs explicit ownership, durable state, and recovery paths you can verify.</p>
+          <div class="project-actions">
+            <a class="btn-accent" href="https://github.com/Stephen-Sim/dant" target="_blank" rel="noopener noreferrer">
+              View source <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+            <a
+              class="btn-ghost"
+              href="https://github.com/Stephen-Sim/dant/releases/latest"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download for Windows <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
 
         <article class="case-study" data-aos="fade-up">
           <h3>DirectPay Payment Gateway</h3>

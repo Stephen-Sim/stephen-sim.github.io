@@ -298,12 +298,14 @@ h1.section-title { font-size: clamp(3.2rem, 7vw, 6.6rem); }
 .work-card-project .work-card-content p { color: #426700; }
 .project-mark { position: absolute; top: 45%; left: 1.5rem; color: rgba(7,17,15,.08); font: 700 9rem/1 var(--font-display); letter-spacing: -.12em; transform: translateY(-50%); }
 .project-mark span { color: var(--accent); text-shadow: 0 0 0 #426700; }
-.work-card-story { grid-column: span 7; flex-direction: column; justify-content: flex-end; background: var(--accent); color: var(--bg-deep); }
-.work-card-story:hover { color: var(--bg-deep); }
-.work-card-story .work-card-top { color: #426700; }
-.work-card-story .work-card-top i { color: var(--bg-deep); }
-.work-card-story blockquote { position: relative; z-index: 2; max-width: 650px; margin: 0 0 2rem; font: 600 clamp(2.2rem, 4vw, 4rem)/1 var(--font-display); letter-spacing: -.05em; }
-.story-link { position: relative; z-index: 2; font: .65rem var(--font-mono); text-transform: uppercase; }
+.work-card-dant { grid-column: span 7; background: var(--accent); color: var(--bg-deep); padding-top: 11rem; }
+.work-card-dant:hover { color: var(--bg-deep); }
+.work-card-dant .work-card-top,
+.work-card-dant .work-card-content p,
+.work-card-dant .work-card-content > span { color: #426700; }
+.work-card-dant .work-card-top i,
+.work-card-dant h3 { color: var(--bg-deep); }
+.dant-mark { position: absolute; top: 4rem; right: 1.6rem; width: 104px; height: 104px; }
 .system-orbit { position: absolute; top: 49%; right: 2rem; width: 245px; height: 245px; border: 1px solid rgba(200,255,101,.18); border-radius: 50%; transform: translateY(-50%); }
 .system-orbit::before { content: ''; position: absolute; inset: 45px; border: 1px dashed rgba(200,255,101,.24); border-radius: 50%; }
 .orbit-core, .orbit-node { position: absolute; display: grid; place-items: center; border: 1px solid rgba(200,255,101,.35); font: .55rem var(--font-mono); }
@@ -379,6 +381,10 @@ h1.section-title { font-size: clamp(3.2rem, 7vw, 6.6rem); }
 .case-study:hover { border-color: rgba(225,242,232,.22); }
 .case-study:hover::before { transform: scaleY(1); }
 .case-study h3 { max-width: 760px; margin-bottom: 1rem; font-size: clamp(1.7rem, 3vw, 2.6rem); }
+.case-study-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; }
+.case-study-heading > div { min-width: 0; }
+.case-study-logo { flex-shrink: 0; width: 80px; height: 80px; }
+.project-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 .case-study > p:not(.case-label):not(.timeline-date):not(.metric-highlight) { max-width: 850px; }
 .case-label { margin: 1.8rem 0 .45rem; color: var(--accent-2); font: .62rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; }
 .case-label::before { content: '↳'; margin-right: .5rem; color: var(--text-dim); }
@@ -432,7 +438,7 @@ h1.section-title { font-size: clamp(3.2rem, 7vw, 6.6rem); }
   .hero-status { margin-bottom: 3.5rem; }
   .hero-photo-frame { margin: 2rem auto 0; }
   .proof-strip { grid-template-columns: repeat(3, 1fr); }
-  .work-card-featured, .work-card-photo, .work-card-project, .work-card-story { grid-column: span 12; }
+  .work-card-featured, .work-card-photo, .work-card-project, .work-card-dant { grid-column: span 12; }
   .work-card { min-height: 430px; }
   .toolbox-layout { grid-template-columns: 1fr; gap: 3rem; }
   .skill-cloud { justify-content: flex-start; }
@@ -451,7 +457,6 @@ h1.section-title { font-size: clamp(3.2rem, 7vw, 6.6rem); }
   .section-note { max-width: none; }
   .work-card { min-height: 390px; }
   .system-orbit { right: -6rem; opacity: .55; }
-  .work-card-story blockquote { font-size: clamp(2.3rem, 11vw, 3.3rem); }
   .timeline-item { grid-template-columns: 35px minmax(0,1fr) 20px; gap: .7rem; }
   .timeline-date { grid-column: 2; grid-row: 1; }
   .timeline-copy { grid-column: 2; grid-row: 2; }
@@ -475,5 +480,7 @@ h1.section-title { font-size: clamp(3.2rem, 7vw, 6.6rem); }
   .work-card-top { top: 1.2rem; right: 1.2rem; left: 1.2rem; }
   .work-card-content h3 { font-size: 2rem; }
   .case-study { padding: 1.4rem; }
+  .case-study-heading { gap: .8rem; }
+  .case-study-logo { width: 56px; height: 56px; }
   .footer-links { flex-wrap: wrap; }
 }

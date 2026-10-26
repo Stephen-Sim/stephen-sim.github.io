@@ -153,7 +153,7 @@ function toggleItem(i: number) {
             <p class="section-eyebrow">Selected signals</p>
             <h2 class="section-title">Work with a real-world pulse.</h2>
           </div>
-          <p class="section-note">Payments, public-impact products, and software built against the clock.</p>
+          <p class="section-note">Payments, desktop companions, and software built against the clock.</p>
         </div>
 
         <div class="work-grid">
@@ -192,10 +192,14 @@ function toggleItem(i: number) {
             </div>
           </RouterLink>
 
-          <RouterLink class="work-card work-card-story" to="/about" data-aos="fade-up" data-aos-delay="160">
-            <div class="work-card-top"><span class="mono">04 / THE THROUGH-LINE</span><i class="fa-solid fa-arrow-right"></i></div>
-            <blockquote>“Reliability isn't a feature. It's the foundation.”</blockquote>
-            <span class="story-link">Read the engineering story</span>
+          <RouterLink class="work-card work-card-dant" to="/projects" data-aos="fade-up" data-aos-delay="160">
+            <div class="work-card-top"><span class="mono">04 / DESKTOP COMPANION</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            <img class="dant-mark" src="/images/dant-logo.svg" alt="" width="104" height="104" aria-hidden="true">
+            <div class="work-card-content">
+              <p>dant</p>
+              <h3>AI work, with you in control.</h3>
+              <span>Go · Rust / Tauri · TypeScript</span>
+            </div>
           </RouterLink>
         </div>
       </div>
